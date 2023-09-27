@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panda Flocus | Ellie Gons</title>
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      />
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    
+      
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="section-container">
+        <button id="focus" class="btn btn-timer btn-focus">
+            <span class="icon"><i class="fa-solid fa-seedling" style="font-size: 14px;"></i></span>
+            <span class="text">Focus Time</span>
+          </button>
+          
+          <button id="shortbreak" class="btn btn-timer btn-shortbreak">
+            <span class="icon"><i class="fa-solid fa-mug-hot" style="font-size: 16px;"></i></span>
+            <span class="text">Short Break</span>
+          </button>
+          
+          <button id="longbreak" class="btn btn-timer btn-longbreak">
+            <span class="icon"><i class="fa-solid fa-book-open bk" style="font-size: 14.4px; position: relative; top: 1px;"></i></span>
+            <span class="text">Long Break</span>
+          </button>
+    </div>
+    <div class="container">
+        <div class="task-input">
+            <input type="text" id="task"
+            placeholder="Type your target task here" />    
+        </div>
+        <span id="time"></span>
+        <div class="btn-container">
+            <button id="btn-start" class="show">Start</button>
+            <button id="btn-pause" class="hide">Pause</button>
+            <button id="btn-reset" class="hide">
+               <i class="fa-solid fa-rotate-right"></i>
+            </button>
+        </div>
+        <audio id="end-sound" src="./audio/mixkit-clear-announce-tones-2861.mp3"></audio>
+    </div>
+</div>
+<!--Mode Switcher-->
+    <div class="mode-switcher">
+        <div class="switcher-container">
+            <div class="switcher-icon-container">
+                <span class="material-icons-outlined lightmode-icon">light_mode</span>
+                <span class="material-icons-outlined darkmode-icon">dark_mode</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
