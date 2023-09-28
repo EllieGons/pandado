@@ -238,12 +238,8 @@
     cursor: pointer;
   }
 
-  .switcher-container:focus {
+  .switcher-container:hover {
     background-color: pink;
-  }
-
-  .mode-switcher:focus {
-    background-color: transparent;
   }
 
   .switcher-icon-container {
