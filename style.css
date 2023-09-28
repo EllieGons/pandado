@@ -242,6 +242,14 @@
     background-color: pink;
   }
 
+  .switcher-container:active {
+    background-color: green;
+  }
+
+  .switcher-container:focus {
+    background-color: black;
+  }
+
   .switcher-icon-container {
     width: 100%;
     height: 100%;
