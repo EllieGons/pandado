@@ -235,11 +235,6 @@
     right: 40%;
     position: absolute;
     transition: transform .3s ease;
-    cursor: pointer;
-  }
-
-  .switcher-container::selection {
-    background-color: black;
   }
 
   .switcher-icon-container {
