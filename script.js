@@ -138,23 +138,43 @@ startBtn.addEventListener("click", () => {
   pause.classList.add("show");
   startBtn.classList.add("hide");
   startBtn.classList.remove("show");
-  if (paused) {
-    paused = false;
+
+  paused = false;
+  time.textContent = `${appendZero(minCount)}:${appendZero(count)}`;
+  set = setInterval(() => {
+    count--;
     time.textContent = `${appendZero(minCount)}:${appendZero(count)}`;
-    set = setInterval(() => {
-      count--;
-      time.textContent = `${appendZero(minCount)}:${appendZero(count)}`;
-      if (count == 0) {
-        if (minCount != 0) {
-          minCount--;
-          count = 60;
-        } else {
-          clearInterval(set);
+    if (count === 0) {
+      if (minCount !== 0) {
+        minCount--;
+        count = 60;
+      } else {
+        clearInterval(set);
+        playSound();
+
+        
+        switch (active) {
+          case "focus":
+            minCount = 24;
+            break;
+          case "short":
+            minCount = 4;
+            break;
+          case "long":
+            minCount = 29;
+            break;
+          default:
+            minCount = 24; 
         }
+        count = 59;
+        time.textContent = `${appendZero(minCount + 1)}:00`;
+
+        
+        reset.classList.remove("show");
+        pause.classList.remove("show");
+        startBtn.classList.remove("hide");
       }
-      updateCountdown();
-    }, 1000);
-  }
+    }
+    updateCountdown();
+  }, 1000);
 });
-
-
