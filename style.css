@@ -224,7 +224,6 @@
     border-radius: 20px;
     width: 30px;
     height: 20px;
-    cursor: pointer;
   }
 
   .switcher-container {
@@ -236,22 +235,7 @@
     right: 40%;
     position: absolute;
     transition: transform .3s ease;
-  }
-
-  .switcher-container:active {
-    background-color: var(--color-fill);
-  }
-
-  .mode-switcher:active {
-    background-color: var(--color-toogle-bg);
-  }
-
-  .switcher-container:hover {
-    background-color: pink;
-  }
-
-  .mode-switcher:hover {
-    background-color: var(--color-toogle-bg);
+    cursor: pointer;
   }
 
   .switcher-container:focus {
@@ -259,7 +243,7 @@
   }
 
   .mode-switcher:focus {
-    background-color: pink;
+    background-color: transparent;
   }
 
   .switcher-icon-container {
