@@ -246,6 +246,14 @@
     background-color: var(--color-toogle-bg);
   }
 
+  .switcher-container:hover {
+    background-color: var(--color-fill);
+  }
+
+  .mode-switcher:hover {
+    background-color: var(--color-toogle-bg);
+  }
+
   .switcher-icon-container {
     width: 100%;
     height: 100%;
