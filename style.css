@@ -247,7 +247,7 @@
   }
 
   .switcher-container:hover {
-    background-color: var(--color-fill);
+    background-color: pink;
   }
 
   .mode-switcher:hover {
