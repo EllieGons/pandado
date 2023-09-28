@@ -238,15 +238,7 @@
     cursor: pointer;
   }
 
-  .switcher-container:hover {
-    background-color: orange;
-  }
-
-  .switcher-container:active {
-    background-color: green;
-  }
-
-  .switcher-container:focus {
+  .switcher-container::selection {
     background-color: black;
   }
 
