@@ -251,11 +251,11 @@
     font-size: 14px;
   }
 
-  .switcher-icon-container::selection {
+  .switcher-icon-container:active {
   background-color: pink;
   }
 
-  .material-icons-outlined::selection {
+  .material-icons-outlined:active {
   background-color: pink;
   }
 
