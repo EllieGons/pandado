@@ -2,7 +2,9 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    user-select: none;
     font-family: "Poppins", sans-serif;
+    -webkit-tap-highlight-color: transparent;
   }
 
   :root {
@@ -130,8 +132,7 @@
     opacity: 0.4;
 }
 
-#task::selection,
-#time::selection {
+#task::selection {
   background-color: var(--color-primary);
   color: var(--color-fill);
 }
@@ -249,14 +250,6 @@
   .material-icons-outlined {
     color: var(--color-primary);
     font-size: 14px;
-  }
-
-  .switcher-icon-container:active {
-  background-color: pink;
-  }
-
-  .material-icons-outlined:active {
-  background-color: pink;
   }
 
   .darkmode-icon {
