@@ -4,7 +4,6 @@
     box-sizing: border-box;
     user-select: none;
     font-family: "Poppins", sans-serif;
-    -webkit-tap-highlight-color: transparent;
   }
 
   :root {
@@ -237,6 +236,7 @@
     position: absolute;
     transition: transform .3s ease;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .switcher-icon-container {
