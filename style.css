@@ -251,6 +251,14 @@
     font-size: 14px;
   }
 
+  .switcher-icon-container::selection {
+  background-color: pink;
+  }
+
+  .material-icons-outlined::selection {
+  background-color: pink;
+  }
+
   .darkmode-icon {
     display: none;
   }
