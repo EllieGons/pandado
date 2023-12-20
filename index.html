@@ -1,76 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pandadoro | Ellie Gons</title>
-    <link rel="icon" href="./icon/favicon.ico" type="ico" sizes="32x32">
+    <title>PandaDo | Ellie Gons</title>
+    <link
+      rel="icon"
+      href="./images/favicon.ico"
+      type="favicon/ico"
+      sizes="32x32"
+    />
+
     <!-- Font Awesome Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      />
+    />
 
     <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    
-      
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
       rel="stylesheet"
     />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    <div class="section-container">
-        <button id="focus" class="btn btn-timer btn-focus">
-            <span class="icon"><i class="fa-solid fa-seedling" style="font-size: 14px;"></i></span>
-            <span class="text">Focus Time</span>
-          </button>
-          
-          <button id="shortbreak" class="btn btn-timer btn-shortbreak">
-            <span class="icon"><i class="fa-solid fa-mug-hot" style="font-size: 16px;"></i></span>
-            <span class="text">Short Break</span>
-          </button>
-          
-          <button id="longbreak" class="btn btn-timer btn-longbreak">
-            <span class="icon"><i class="fa-solid fa-book-open bk" style="font-size: 14.4px; position: relative; top: 1px;"></i></span>
-            <span class="text">Long Break</span>
-          </button>
+  </head>
+  <body>
+    <!-- Loading screen -->
+    <div class="loader">
+      <div class="logo-container">
+        <img
+          src="./images/load-icon.svg"
+          alt="Loading icon"
+          class="panda-logo"
+        />
+      </div>
+      <p class="loading-text">please wait...</p>
     </div>
+    <div class="panda-anime">
+      <img
+        src="./images/panda-illust.png"
+        alt="pandaAnimation"
+        class="panda-illust"
+      />
+      <div class="panda-shadow shadow-scale"></div>
+    </div>
+
+    <!-- Mode selection -->
+    <div class="section-container" id="mode-selection">
+      <button id="boost" class="btn btn-timer btn-boost">
+        <span class="icon"
+          ><i class="fa-solid fa-bolt" style="font-size: 16px"></i
+        ></span>
+        <span class="text">Boost</span>
+      </button>
+
+      <button id="rest" class="btn btn-timer btn-rest">
+        <span class="icon"
+          ><i class="fa-solid fa-mug-hot" style="font-size: 16.5px"></i
+        ></span>
+        <span class="text">Rest</span>
+      </button>
+
+      <button id="marathon" class="btn btn-timer btn-marathon">
+        <span class="icon"
+          ><i class="fa-solid fa-fire" style="font-size: 16.4px"></i
+        ></span>
+        <span class="text">Marathon</span>
+      </button>
+    </div>
+
+    <!-- Timer container -->
     <div class="container">
-        <div class="task-input">
-            <input type="text" id="task"
-            placeholder="Type your target task here" />    
-        </div>
-        <span id="time"></span>
-        <div class="btn-container">
-            <button id="btn-start" class="show">Start</button>
-            <button id="btn-pause" class="hide">Pause</button>
-            <button id="btn-reset" class="hide">
-               <i class="fa-solid fa-rotate-right"></i>
+      <h3>Timer Mode</h3>
+      <div id="mode-title">Panda Boost</div>
+      <span id="time"></span>
+      <div class="btn-container">
+        <button id="btn-start" class="show">Start</button>
+        <button id="btn-pause" class="hide">Pause</button>
+        <button id="btn-reset" class="hide">
+          <i class="fa-solid fa-rotate-right"></i>
+        </button>
+      </div>
+      <audio
+        id="end-sound"
+        src="./audio/mixkit-clear-announce-tones-2861.mp3"
+      ></audio>
+    </div>
+
+    <!--Footer menu-->
+    <div class="footer-nav" id="footer">
+      <div class="info">
+        <button class="info-btn" id="info" title="About">
+          <i class="fa-solid fa-circle-info"></i>
+        </button>
+        <div id="info-screen">
+          <div class="info-container" id="info-container">
+            <p class="version">Version 1.0</p>
+            <img src="images/logo.png" alt="PandaDo Logo" />
+            <button
+              class="close-button"
+              id="close-info-btn"
+              onclick="closeInfo()"
+            >
+              <i class="fa-solid fa-xmark"></i>
             </button>
-        </div>
-        <audio id="end-sound" src="./audio/mixkit-clear-announce-tones-2861.mp3"></audio>
-    </div>
-</div>
-<!--Mode Switcher-->
-    <div class="mode-switcher">
-        <div class="switcher-container">
-            <div class="switcher-icon-container">
-                <span class="material-icons-outlined lightmode-icon">light_mode</span>
-                <span class="material-icons-outlined darkmode-icon">dark_mode</span>
+            <div class="socials">
+              <p>Support & Feedback</p>
+              <div class="socials-buttons">
+                <a class="social-link instagram" href="https://www.instagram.com/elliegons/"
+                  ><i class="fa-brands fa-instagram"></i
+                  ><span class="tooltip">Instagram</span></a
+                >
+                <a class="social-link bmc" href="https://www.buymeacoffee.com/elliegons"
+                  ><i class="fa-regular fa-heart" style="font-size: 14px"></i
+                  ><span class="tooltip">Buy Me a Coffee</span></a
+                >
+                <a class="social-link email" href="https://mailto:elliegons.shop@gmail.com"
+                  ><i
+                    class="fa-regular fa-envelope"
+                    style="font-size: 14.5px"
+                  ></i
+                  ><span class="tooltip">Email</span></a
+                >
+              </div>
             </div>
+            <p class="copyright">© 2023 Ellie Gons. All rights reserved.</p>
+            <div class="more-info">
+              <span
+                ><i class="fa-solid fa-book"></i>For more info check your
+                product user manual!</span
+              >
+              <span
+                ><i class="fa-solid fa-book"></i>For more info check your
+                product user manual!</span
+              >
+              <span
+                ><i class="fa-solid fa-book"></i>For more info check your
+                product user manual!</span
+              >
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="settings-menu">
+        <button class="settings-btn" id="settings" title="Settings">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+
+        <div id="setting-screen">
+          <div class="settings-box" id="settings-box">
+            <button
+              class="close-button"
+              id="close-setting-btn"
+              onclick="closeSettings()"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="settings-header-title">Settings</h3>
+
+            <div class="setting-container">
+              <i class="material-icons-outlined dark-mode-icon">dark_mode</i
+              ><label for="line" class="setting-line darkmode-line"
+                >Dark Mode
+              </label>
+              <label class="switch">
+                <input type="checkbox" id="dark-mode-toggle" />
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="setting-container">
+              <i class="material-icons-outlined animation-icon">animation</i
+              ><label for="line" class="setting-line animation-line"
+                >Animation
+              </label>
+              <label class="switch">
+                <input type="checkbox" id="animation-toggle" />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    
     <!-- Script -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("sw.js")
+          .then(function (registration) {
+            console.log(
+              "Service Worker registered with scope:",
+              registration.scope
+            );
+          })
+          .catch(function (error) {
+            console.error("Service Worker registration failed:", error);
+          });
+        }
+    </script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
