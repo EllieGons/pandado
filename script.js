@@ -29,12 +29,7 @@ function updateModeTitle(title) {
   document.getElementById('mode-title').textContent = title;
 }
 
-/*SERVICE WORKER---------------------*/
-function sendMessageToServiceWorker(type) {
-  if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
-    navigator.serviceWorker.controller.postMessage({ type });
-  }
-}
+
 
 /*NAVIGATOR TAB TITLE---------------------*/
 function updateTabTitle(minCount, count, active) {
@@ -87,17 +82,11 @@ function updateCountdown() {
   }
 }
 
-navigator.serviceWorker.addEventListener("message", (event) => {
-  const data = event.data;
-  if (data.type === "playSound") {
-    playSound();
-  }
-});
+
 
 /*MODE SELECTION---------------------*/
 boostButton.addEventListener("click", () => {
   active = "boost";
-  sendMessageToServiceWorker("setBoostTimer");
   updateModeTitle("panda boost");
   console.log("Active mode set to boost");
 
@@ -115,7 +104,6 @@ boostButton.addEventListener("click", () => {
 
 restButton.addEventListener("click", () => {
   active = "rest";
-  sendMessageToServiceWorker("setRestTimer");
   updateModeTitle("panda rest");
   console.log("Active mode set to rest Break");
 
@@ -133,7 +121,6 @@ restButton.addEventListener("click", () => {
 
 marathonButton.addEventListener("click", () => {
   active = "marathon";
-  sendMessageToServiceWorker("setMarathonTimer");
   updateModeTitle("panda marathon");
   console.log("Active mode set to marathon break");
 
@@ -152,7 +139,6 @@ marathonButton.addEventListener("click", () => {
 /*TIMER BUTTONS---------------------*/
 reset.addEventListener("click", () => {
   console.log("reset clicked");
-    sendMessageToServiceWorker("reset");
 
     startBtn.classList.remove("hide");
     startBtn.textContent = "Start";
@@ -190,7 +176,6 @@ const removeboost = () => {
 
 pause.addEventListener("click", () => {
   if (!paused) {
-    sendMessageToServiceWorker("pause");
     clearInterval(set);
     paused = true;
     startBtn.classList.remove("hide");
@@ -204,7 +189,6 @@ pause.addEventListener("click", () => {
 });
 
 startBtn.addEventListener("click", () => {
-  sendMessageToServiceWorker("start");
 
   reset.classList.add("show");
   pause.classList.add("show");
@@ -218,7 +202,6 @@ startBtn.addEventListener("click", () => {
 
   console.log("Starting the timer. paused = " + paused);
 
-  sendMessageToServiceWorker("requestUpdate");
 
   set = setInterval(() => {
     count--;
@@ -260,13 +243,6 @@ startBtn.addEventListener("click", () => {
     }
     updateCountdown();
   }, 1000);
-});
-
-navigator.serviceWorker.addEventListener("message", (event) => {
-  const data = event.data;
-  if (data.type === "updateTimer") {
-    updateTimer(data.minCount, data.count);
-  }
 });
 
 /*LOAD SCREEN---------------------*/
