@@ -130,12 +130,12 @@
                   ><i class="fa-regular fa-heart" style="font-size: 14px"></i
                   ><span class="tooltip">Buy Me a Coffee</span></a
                 >
-                <a class="social-link email" href="mailto:elliegons.shop@gmail.com"
+                <a class="social-link email" href="https://mailto:elliegons.shop@gmail.com"
                   ><i
                     class="fa-regular fa-envelope"
                     style="font-size: 14.5px"
                   ></i
-                  ><span class="tooltip">Send email</span></a
+                  ><span class="tooltip">Email</span></a
                 >
               </div>
             </div>
@@ -201,6 +201,21 @@
       </div>
     </div>
     <!-- Script -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("sw.js")
+          .then(function (registration) {
+            console.log(
+              "Service Worker registered with scope:",
+              registration.scope
+            );
+          })
+          .catch(function (error) {
+            console.error("Service Worker registration failed:", error);
+          });
+        }
+    </script>
     <script src="script.js"></script>
   </body>
 </html>
