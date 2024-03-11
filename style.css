@@ -656,6 +656,7 @@ input:checked + .slider::before {
   border-radius: 20px;
   padding: 10px 30px;
   overflow: hidden;
+  
   opacity: 0;
   visibility: hidden;
   &:hover {
@@ -861,7 +862,7 @@ input:checked + .slider::before {
 .loading-text {
   font-family: "Roboto Mono", monospace;
   letter-spacing: -0.6px;
-  font-size: 13px;
+  font-size: 11px;
   color: white;
   margin-top: 8px;
 }
